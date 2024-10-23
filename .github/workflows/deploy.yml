@@ -12,5 +12,5 @@ jobs:
         uses: actions/checkout@v3
       - name: Copy files to server
         run: |
-          cp /test_file_1.py ~/home/test_file_1.py    
-          cp /test_file_2.py ~/home/test_file_2.py
+          cp test_file_1.py ~/home/test_file_1.py    
+          cp test_file_2.py ~/home/test_file_2.py
