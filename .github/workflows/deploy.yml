@@ -4,6 +4,7 @@ on:
     branches:
       - test
       - test_2
+  workflow_dispatch:
 
 jobs:
   deploy:
