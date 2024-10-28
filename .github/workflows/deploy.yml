@@ -1,18 +1,14 @@
-name: Deploy to Server
+name: Test Action
 on:
   push:
     branches:
       - test
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+  test:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref:  ${{ github.ref_name }}
-      - name: Copy files to server
-        run: |
-          cp test_file_1.py $HOME/test_file_1.py    
-          cp test_file_2.py $HOME/test_file_2.py
+      - name: Print message
+        run: echo "Hello, World!"
