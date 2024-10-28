@@ -8,9 +8,9 @@ jobs:
 
     steps:
       - name: Checkout configuration branch
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
-          github_token: ${{ secrets.PAT}}
+          token: ${{ secrets.PAT}}
           ref: main
 
       - run: echo "Triggered on branch ${{ github.ref }}"
