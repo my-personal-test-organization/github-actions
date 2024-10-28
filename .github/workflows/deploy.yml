@@ -12,6 +12,6 @@ jobs:
       - name: Checkout configuration branch
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          ref: main
 
       - run: echo "Triggered on branch ${{ github.ref }}"
