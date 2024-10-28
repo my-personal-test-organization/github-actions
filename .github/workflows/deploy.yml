@@ -7,5 +7,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout configuration branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
       - run: echo "Triggered on branch ${{ github.ref }}"
