@@ -1,10 +1,15 @@
 name: Deploy to Server
 on:
-  push:
-    branches:
-      - test
-      - test_2
+#  push:
+#    branches:
+#      - test
+#      - test_2
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'main'
 
 jobs:
   deploy:
