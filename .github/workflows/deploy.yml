@@ -1,18 +1,27 @@
-name: Test Action
+name: Test Action 2
 on:
   push:
     branches:
-      - '**'
+      - '*'
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: self-hosted
     steps:
-      - name: Checkout configuration branch
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.PAT}}
-          ref: main
+          ref: ${{ github.ref_name }}
 
-      - run: echo "Triggered on branch ${{ github.ref }}"
+      - name: Log GitHub Context
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Ref Name: ${{ github.ref_name }}"
+          echo "Repository: ${{ github.repository }}"
+
+      - name: Copy files to server
+        run: |
+          cp test_file_1.py $HOME/test_file_1.py    
+          cp test_file_2.py $HOME/test_file_2.py
+
