@@ -12,7 +12,7 @@ jobs:
       - name: Checkout configuration branch
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PAT}}
+          GITHUB_TOKEN: ${{ secrets.PAT}}
           ref: main
 
       - run: echo "Triggered on branch ${{ github.ref }}"
